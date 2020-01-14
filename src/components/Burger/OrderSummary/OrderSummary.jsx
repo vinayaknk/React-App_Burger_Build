@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Aux from "../../../hoc/Auxiliary/Auxiliary";
-import Button from "../../UI/Button/Button.jsx";
+// import Button from "../../UI/Button/Button.jsx";
 
 class OrderSummary extends Component {
   //OrderSummary could be function component
@@ -29,12 +29,12 @@ class OrderSummary extends Component {
           <strong>Total price: {this.props.price}</strong>
         </p>
         <p>Continue to checkout</p>
-        <Button btnType="Danger" clicked={this.props.purchaseCancelled}>
+        <button className="btn btn-primary" onClick={this.props.purchaseCancelled}>
           CANCEL
-        </Button>
-        <Button btnType="Success" clicked={this.props.purchaseContinued}>
+        </button>
+        <button className="btn btn-danger" onClick={this.props.purchaseContinued}>
           CONTINUE
-        </Button>
+        </button>
       </Aux>
     );
   }

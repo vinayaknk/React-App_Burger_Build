@@ -7,20 +7,8 @@ const withErrorHandler = (WrappedComponent, axios) => {
     state = {
       error: null
     };
-    // constructor() {
-    //   super();
-    //   axios.interceptors.request.use(req => {
-    //     this.staet = { error: null };
-    //     return req;
-    //   });
-    //   axios.interceptors.response.use(
-    //     res => res,
-    //     error => {
-    //       this.state = { error: error };
-    //     }
-    //   );
-    // }
-    componentDidMount() {
+    constructor() {
+      super();
       axios.interceptors.request.use(req => {
         this.setState({ error: null });
         return req;
@@ -32,6 +20,18 @@ const withErrorHandler = (WrappedComponent, axios) => {
         }
       );
     }
+    // componentDidMount() {
+    //   axios.interceptors.request.use(req => {
+    //     this.setState({ error: null });
+    //     return req;
+    //   });
+    //   axios.interceptors.response.use(
+    //     res => res,
+    //     error => {
+    //       this.setState({ error: error });
+    //     }
+    //   );
+    // }
 
     errorConfirmedHandler = () => {
       this.setState({ error: null });

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Burger.module.css';
 import BurgerIngredients from './BurgerIngredients/BurgerIngredients'
-
+import {connect} from 'react-redux'
 
 const Burger = (props) => {
 ////
@@ -28,9 +28,10 @@ if(ingredient_obj_to_array.length===0){
             <BurgerIngredients type="bread-top" />
             {ingredient_obj_to_array}
             <BurgerIngredients type="bread-bottom" />
-            Total Price : Rs. {props.totalPrice}
+            Total Price : Rs. {props.price}
         </div>
      );
 }
- 
-export default Burger;
+
+const mapStateToProps = state =>{return{ price : state.burger.totalPrice}}
+export default connect(mapStateToProps)(Burger);
